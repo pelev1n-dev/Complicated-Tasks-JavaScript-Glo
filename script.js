@@ -14,3 +14,5 @@ console.log(multiDigitalPow);
 
 console.log(+(multiDigitalPow.toString().substr(0,2)));
 
+const reducer = (accumulator, currentValue) => accumulator * currentValue;
+console.log(arrNumber.reduce(reducer));
