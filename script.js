@@ -1,20 +1,30 @@
 'use strict'
-let text1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
-  'Donec eu nisi mi. Aenean leo lectus, maximus sit amet aliquet sit amet, luctus ac turpis. ' +
-  'Mauris laoreet efficitur vestibulum. Praesent vitae nunc nec tortor congue sagittis. ' +
-  'Sed porta elit et velit eleifend, et lobortis nisi tempus. ' +
-  'In aliquet nulla ut ante ullamcorper, eget rhoncus metus condimentum. ' +
-  'Nam magna velit, sodales a laoreet rutrum, porttitor vel diam.'
-let text2 = 'Lorem ipsum dolor sit amet';
-let text3 = 1112;
-const getSliceText = function (text) {
-  if (typeof text !== 'string' ) {
-    return alert('В аргумент передана не строка');
-  } else {
-    text = text.trim();
-    return text.length > 30 ? text.slice(0, 30) + '...' : text;
+
+let arr = [3223, 212317, 75355, 355104, 43457, 73228, 37743];
+
+arr.forEach(em => {
+  if (String(em).search(/(3|7)/) === 0) console.log(em);
+});
+
+
+let isSimpleCheck = function(number) {
+  if (number === 1) {
+    return false;
+  }
+  for (let i = 2; i * i <= number; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+let isSimple = function(n) {
+  for (let i = 2; i <=n; i++) {
+    if (isSimpleCheck(i)) {
+      console.log(i + ' Делители этого числа: 1 и ' + i);
+    }
   }
 };
-console.log(getSliceText(text1));
-console.log(getSliceText(text2));
-console.log(getSliceText(text3));
+
+isSimple(100);
