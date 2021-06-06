@@ -1,30 +1,29 @@
 'use strict'
 
-let arr = [3223, 212317, 75355, 355104, 43457, 73228, 37743];
+let week = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
 
-arr.forEach(em => {
-  if (String(em).search(/(3|7)/) === 0) console.log(em);
+// 1
+document.write(week.join(', ') + '<br>');
+// 2
+week.forEach( elem => {
+  document.write(elem + '<br>');
 });
-
-
-let isSimpleCheck = function(number) {
-  if (number === 1) {
-    return false;
+// 3
+week.forEach( elem => {
+  if (elem === 'Суббота' || elem === 'Воскресенье') {
+    document.write(elem.italics() + '<br>');
+  } else {
+    document.write(elem + '<br>');
   }
-  for (let i = 2; i * i <= number; i++) {
-    if (number % i === 0) {
-      return false;
-    }
+});
+// 4
+const date = new Date();
+week.forEach(elem => {
+  if (elem === week[date.getDay()]) {
+    document.write(elem.bold() + '<br>');
+  } else if (elem === 'Суббота' || elem === 'Воскресенье') {
+    document.write(elem.italics() + '<br>');
+  } else {
+    document.write(elem + '<br>');
   }
-  return true;
-};
-
-let isSimple = function(n) {
-  for (let i = 2; i <=n; i++) {
-    if (isSimpleCheck(i)) {
-      console.log(i + ' Делители этого числа: 1 и ' + i);
-    }
-  }
-};
-
-isSimple(100);
+});
